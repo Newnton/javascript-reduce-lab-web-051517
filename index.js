@@ -1,5 +1,9 @@
 const batteryBatches = [4, 5, 3, 4, 4, 6, 5];
 
+let totalBatteries = batteryBatches.reduce((a, b) => {
+  return a + b
+}, 0)
+
 const monologueLines = [
   'Who are you talking to right now?',
   'Who is it you think you see?',
@@ -16,3 +20,10 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+let wordCountMap = monologueLines.reduce((lines, line) => {
+  line = line.split(" ").length
+  if (line in lines) {lines[line]++}
+  else {lines[line] = 1}
+  return lines
+}, {})
